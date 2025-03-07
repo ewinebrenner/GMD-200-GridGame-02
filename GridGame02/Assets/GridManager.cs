@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,10 @@ public class GridManager : MonoBehaviour
                     tile.solid = true;
                     tile.GetComponent<SpriteRenderer>().color = Color.black;
                 }
+
+                //Make tile jiggle
+                tile.transform.DOPunchScale(Vector3.one * 0.3f, 0.5f).SetDelay((row * numColumns + col) * 0.1f);
+
                 _tiles.Add(tile);
             }
         }
